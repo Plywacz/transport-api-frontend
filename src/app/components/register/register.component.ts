@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../services/user.service';
 
 @Component({
@@ -24,16 +24,18 @@ export class RegisterComponent {
        confirmPassword: new FormControl('')
      });
    }
+   more advanced example https://www.youtube.com/watch?v=3_dFnULt3FA&list=PLC3y8-rFHvwhwL-XH04cHOpJnkgRKykFi&index=21
   */
   private generateFormGroup() {
-      return this.fb.group({
-        username: [''],
-        password: [''],
-        confirmPassword: ['']
-      });
+    return this.fb.group({
+      username: ['', [Validators.required, Validators.minLength(3)]],
+      password: [''],
+      confirmPassword: ['']
+    });
   }
 
   onSubmit(): void {
+
   }
 
   clearValues() {
