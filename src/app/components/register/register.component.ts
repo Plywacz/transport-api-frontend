@@ -41,4 +41,8 @@ export class RegisterComponent {
   clearValues() {
     this.registrationForm.reset();
   }
+
+  get username() {
+    return this.registrationForm.get('username');
+  }
 }
