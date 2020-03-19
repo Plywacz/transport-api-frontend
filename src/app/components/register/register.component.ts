@@ -7,19 +7,28 @@ import {FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  registrationForm = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
-    confirmPassword: new FormControl('')
-  });
+  registrationForm: FormGroup;
 
   constructor() {
+    this.registrationForm = this.generateFormGroup();
+  }
+
+  private generateFormGroup() {
+    return new FormGroup({
+      username: new FormControl(''),
+      password: new FormControl(''),
+      confirmPassword: new FormControl('')
+    });
   }
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
+    console.log(this.registrationForm.value);
+  }
 
+  clearValues() {
+    this.registrationForm.reset();
   }
 }
