@@ -1,31 +1,39 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
   registrationForm: FormGroup;
 
-  constructor() {
+  constructor(private fb: FormBuilder,
+              private userService: UserService) {
     this.registrationForm = this.generateFormGroup();
   }
 
+  /*
+  more verbose version of this code:
+   private generateFormGroup() {
+     return new FormGroup({
+       username: new FormControl(''),
+       password: new FormControl(''),
+       confirmPassword: new FormControl('')
+     });
+   }
+  */
   private generateFormGroup() {
-    return new FormGroup({
-      username: new FormControl(''),
-      password: new FormControl(''),
-      confirmPassword: new FormControl('')
-    });
-  }
-
-  ngOnInit(): void {
+      return this.fb.group({
+        username: [''],
+        password: [''],
+        confirmPassword: ['']
+      });
   }
 
   onSubmit(): void {
-    console.log(this.registrationForm.value);
   }
 
   clearValues() {
