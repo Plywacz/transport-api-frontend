@@ -4,7 +4,10 @@
     <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label>Username</label>
-        <input formControlName="username" type="text" class="form-control">
+        <input [class.is-invalid]="registrationForm.get('username').invalid && registrationForm.get('username').touched"
+               formControlName="username" type="text" class="form-control">
+        <small [class.d-none]="registrationForm.get('username').valid || registrationForm.get('username').untouched"
+               class="text-danger">Username is required!</small>
       </div>
       <div class="form-group">
         <label>Password</label>
@@ -15,7 +18,7 @@
         <input formControlName="confirmPassword" type="password" class="form-control">
       </div>
       <button class="btn btn-info" type="submit">Send</button>
-      <button (click)="clearValues()" class="btn btn-danger ml-1" type="submit">Clear</button>
+      <button (click)="clearValues()" class="btn btn-danger ml-1" type="submit">clear</button>
     </form>
     {{registrationForm.value | json}}  <!-- todo debug only- delete this line -->
   </div>
