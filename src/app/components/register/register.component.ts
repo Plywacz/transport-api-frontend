@@ -1,16 +1,15 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../services/user.service';
 import {forbiddenNameValidator} from '../../shared/name.validator';
 import {passwordValidator} from '../../shared/password.validator';
-import {UserDto} from '../../models/user-dto';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   registrationForm: FormGroup;
 
   constructor(private fb: FormBuilder,
@@ -46,6 +45,9 @@ export class RegisterComponent {
         error => console.error(error));
   }
 
+  ngOnInit(): void {
+    this.clearValues();
+  }
 
   clearValues() {
     this.registrationForm.reset();
