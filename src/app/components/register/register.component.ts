@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../services/user.service';
-import {forbiddenNameValidator} from '../../shared/validators';
+import {forbiddenNameValidator} from '../../shared/name.validator';
+import {passwordValidator} from '../../shared/password.validator';
 
 @Component({
   selector: 'app-register',
@@ -32,7 +33,7 @@ export class RegisterComponent {
       username: ['', [Validators.required, Validators.minLength(3), forbiddenNameValidator(/admin/)]],
       password: [''],
       confirmPassword: [''],
-    });
+    },{validator: passwordValidator});
   }
 
   onSubmit(): void {
