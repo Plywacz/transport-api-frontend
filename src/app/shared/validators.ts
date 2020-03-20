@@ -1,4 +1,4 @@
-import {AbstractControl} from '@angular/forms';
+import {AbstractControl, ValidatorFn} from '@angular/forms';
 
 /*
  :{ [key: string]: any } | null
@@ -6,9 +6,11 @@ import {AbstractControl} from '@angular/forms';
     key is string and value is of any type
  or this function return null if validation passed
  */
-export function forbiddenNameValidator(control: AbstractControl): { [key: string]: any } | null {
-  // admin is forbidden word to be used as a name
-  const forbidden = /admin/.test(control.value);
 
-  return forbidden ? {'forbiddenName': {value: control.value}} : null;
+
+export function forbiddenNameValidator(forbiddenName: RegExp): ValidatorFn {
+  return (control: AbstractControl): { [key: string]: any } | null => {
+    const forbidden = forbiddenName.test(control.value);
+    return forbidden ? {'forbiddenName': {value: control.value}} : null;
+  };
 }

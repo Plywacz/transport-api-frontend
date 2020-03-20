@@ -29,7 +29,7 @@ export class RegisterComponent {
   */
   private generateFormGroup() {
     return this.fb.group({
-      username: ['', [Validators.required, Validators.minLength(3), forbiddenNameValidator]],
+      username: ['', [Validators.required, Validators.minLength(3), forbiddenNameValidator(/admin/)]],
       password: [''],
       confirmPassword: [''],
     });
