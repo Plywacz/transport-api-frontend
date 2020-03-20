@@ -24,7 +24,7 @@
         <input [class.is-invalid]="registrationForm.errors?.mismatch" formControlName="confirmPassword" type="password" class="form-control">
         <small class="text-danger" *ngIf="registrationForm.errors?.mismatch">Passwords don't match</small>
       </div>
-      <button class="btn btn-info" type="submit">Send</button>
+      <button [disabled]="!registrationForm.valid"  class="btn btn-info" type="submit">Send</button>
       <button (click)="clearValues()" class="btn btn-danger ml-1" type="submit">clear</button>
     </form>
     {{registrationForm.value | json}}  <!-- todo debug only- delete this line -->

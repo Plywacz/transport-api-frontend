@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../services/user.service';
 import {forbiddenNameValidator} from '../../shared/name.validator';
 import {passwordValidator} from '../../shared/password.validator';
+import {UserDto} from '../../models/user-dto';
 
 @Component({
   selector: 'app-register',
@@ -33,12 +34,18 @@ export class RegisterComponent {
       username: ['', [Validators.required, Validators.minLength(3), forbiddenNameValidator(/admin/)]],
       password: [''],
       confirmPassword: [''],
-    },{validator: passwordValidator});
+    }, {validator: passwordValidator});
   }
 
   onSubmit(): void {
-
+    this.userService.register({
+      username: this.registrationForm.get('username').value,
+      password: this.registrationForm.get('password').value,
+    })
+      .subscribe(response => console.log(response),
+        error => console.error(error));
   }
+
 
   clearValues() {
     this.registrationForm.reset();
