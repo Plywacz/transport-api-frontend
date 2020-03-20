@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../services/user.service';
+import {forbiddenNameValidator} from '../../shared/validators';
 
 @Component({
   selector: 'app-register',
@@ -28,9 +29,9 @@ export class RegisterComponent {
   */
   private generateFormGroup() {
     return this.fb.group({
-      username: ['', [Validators.required, Validators.minLength(3)]],
+      username: ['', [Validators.required, Validators.minLength(3), forbiddenNameValidator]],
       password: [''],
-      confirmPassword: ['']
+      confirmPassword: [''],
     });
   }
 
