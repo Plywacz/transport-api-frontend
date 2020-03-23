@@ -9,12 +9,17 @@ import {AppRoutingModule} from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import {UserService} from './services/user.service';
 
+import { AlertComponent } from './components/alert/alert.component';
+import {AlertService} from './services/alert.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    AlertComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +27,7 @@ import {UserService} from './services/user.service';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [UserService],
+  providers: [UserService, AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

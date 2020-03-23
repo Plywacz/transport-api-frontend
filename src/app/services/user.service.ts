@@ -11,8 +11,8 @@ export class UserService {
   private readonly registerUrl: string;
 
   constructor(private http: HttpClient) {
-    this.loginUrl = 'http://localhost:8080/users/api/login';
-    this.registerUrl = 'http://localhost:8080/users/api/register';
+    this.loginUrl = 'http://localhost:8080/api/login'; //todo update svager doc, because contains not actual links
+    this.registerUrl = 'http://localhost:8080/api/register';
   }
 
   public register(user: UserDto): Observable<UserDto> {
