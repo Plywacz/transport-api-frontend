@@ -22,7 +22,7 @@ export class AlertComponent implements OnInit, OnDestroy {
         switch (message && message.type) {
           case 'success':
             message.cssClass = 'alert alert-success';
-            this.hideAlert(4000);
+            this.hideAlert(7000);
             break;
           case 'error':
             message.cssClass = 'alert alert-danger';

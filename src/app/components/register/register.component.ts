@@ -46,7 +46,7 @@ export class RegisterComponent {
     this.alertService.wait('Registration in progress');
 
     this.userService.register({
-      username: this.registrationForm.get('username').value,
+      username: this.registrationForm.get('username').value, //todo replace  this.registrationForm.get('username') with just 'username'
       password: this.registrationForm.get('password').value,
     })
       .subscribe(

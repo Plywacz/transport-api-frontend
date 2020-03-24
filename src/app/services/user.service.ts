@@ -15,7 +15,11 @@ export class UserService {
     this.registerUrl = 'http://localhost:8080/api/register';
   }
 
-  public register(user: UserDto): Observable<UserDto> {
+  public register(user: UserDto): Observable<any> {
     return this.http.post<UserDto>(this.registerUrl, user);
+  }
+
+  public login(user: UserDto): Observable<any> {
+    return this.http.post<UserDto>(this.loginUrl, user);
   }
 }
