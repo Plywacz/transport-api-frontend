@@ -39,8 +39,9 @@ export class AlertComponent implements OnInit, OnDestroy {
   hideAlert(mills: number): void {
     const self = this;
     setTimeout(() => {
-      self.message.cssClass = 'none';
-      self.message.text = '';
+      // self.message.cssClass = 'none';
+      // self.message.text = '';
+      this.alertService.clear();
     }, mills);
   }
 
