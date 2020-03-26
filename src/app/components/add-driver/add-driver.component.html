@@ -1,1 +1,25 @@
-<p>add-driver works!</p>
+<div class="card my-5">
+  <div class="card-body bg-light border border-secondary rounded">
+    <h2>Add Driver Form</h2>
+    <form [formGroup]="addDriverForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input [class.is-invalid]="firstName.invalid && firstName.touched"
+               class="form-control" formControlName="firstName" type="text" id="firstName">
+        <small *ngIf="firstName.touched && firstName.invalid && firstName.errors?.required" class="text-danger"> Username is
+          required
+        </small>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input [class.is-invalid]="lastName.invalid && lastName.touched"
+               class="form-control" formControlName="lastName" type="text" id="lastName">
+        <small *ngIf="lastName.touched && lastName.invalid && lastName.errors?.required" class="text-danger"> Password
+          is required
+        </small>
+      </div>
+      <button [disabled]="!addDriverForm.valid" class="btn btn-info" type="submit">Send</button>
+      <button (click)="clearForm()" class="btn btn-danger ml-1" type="submit">clear</button>
+    </form>
+  </div>
+</div>
