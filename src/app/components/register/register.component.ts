@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {UserService} from '../../services/user.service';
+import {UserService} from '../../services/user/user.service';
 import {forbiddenNameValidator} from '../../shared/name.validator';
 import {passwordValidator} from '../../shared/password.validator';
-import {AlertService} from '../../services/alert.service';
+import {AlertService} from '../../services/user/alert.service';
 import {Router} from '@angular/router';
 
 @Component({
