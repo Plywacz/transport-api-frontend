@@ -45,10 +45,7 @@ export class RegisterComponent {
 
     this.alertService.wait('Registration in progress');
 
-    this.userService.register({
-      username: this.registrationForm.get('username').value, //todo replace  this.registrationForm.get('username') with just 'username'
-      password: this.registrationForm.get('password').value,
-    })
+    this.userService.register(this.username.value, this.password.value)
       .subscribe(
         data => { //todo try to BOLD data.username (try sending message in paragraph -> <p></p>)
           this.alertService.success('Hi ' + data.username + ' your account has been created successfully,\n now you can login to app');

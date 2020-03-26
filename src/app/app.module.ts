@@ -11,6 +11,7 @@ import {UserService} from './services/user.service';
 
 import { AlertComponent } from './components/alert/alert.component';
 import {AlertService} from './services/alert.service';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import {AlertService} from './services/alert.service';
     RegisterComponent,
     AlertComponent,
     AlertComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../services/user.service';
 import {AlertService} from '../../services/alert.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,16 +10,21 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  private loginForm: FormGroup;
+  loginForm: FormGroup;
+  private returnUrl: string;
 
   constructor(private fb: FormBuilder,
               private userService: UserService,
               private alertService: AlertService, //todo: - after successfully login, redirect to whole new page with navi bar etc, so that alert wont be needed
-              private router: Router) {
+              private router: Router,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
     this.loginForm = this.generateForm();
+
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   generateForm(): FormGroup {
@@ -32,12 +37,12 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.alertService.wait('Login in progress...');
 
-    this.userService.login({
-      username: this.login.value,
-      password: this.password.value
-    })
+    this.userService.login(
+      this.login.value,
+      this.password.value
+    )
       .subscribe(data => {
-          this.alertService.success(data.token);//todo implement
+          this.router.navigate([this.returnUrl]);//todo implement
         },
         error => {
           let msg = 'Login failed - ' + (error.error ? error.error : 'unknown error');
