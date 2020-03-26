@@ -10,7 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {UserService} from './services/user/user.service';
 
 import { AlertComponent } from './components/alert/alert.component';
-import {AlertService} from './services/user/alert.service';
+import {AlertService} from './services/alert/alert.service';
 import { HomeComponent } from './components/home/home.component';
 import {AddDriverComponent} from './components/add-driver/add-driver.component';
 

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../services/user/user.service';
-import {AlertService} from '../../services/user/alert.service';
+import {AlertService} from '../../services/alert/alert.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
