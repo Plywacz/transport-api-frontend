@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {UserService} from '../user.service';
+import {UserService} from '../services/user.service';
 
 /*
- * intercepts http requests from the application to add a JWT auth token to
+ * intercepts http requests from the application to add a JWT authorization token to
  *  the Authorization header if the user is logged in.
  */
 @Injectable()

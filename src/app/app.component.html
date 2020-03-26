@@ -2,14 +2,15 @@
   <div class="navbar-nav">
     <a class="nav-item nav-link" routerLink="/">Home</a>
     <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    <a class="nav-item nav-link ml-3" routerLink="/add-driver">Add Driver</a>
   </div>
 </nav>
 
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <div class="card bg-dark my-5">
-        <div class="card-body" *ngIf="!currentUser">
+      <div class="card bg-dark my-5" *ngIf="!currentUser">
+        <div class="card-body">
           <h2 class="card-title text-center text-white py-3">{{ title }}</h2>
           <ul class="text-center list-inline py-3">
             <li class="list-inline-item">
