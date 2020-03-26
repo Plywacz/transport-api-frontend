@@ -18,6 +18,11 @@ export class LoginComponent implements OnInit {
               private alertService: AlertService, //todo: - after successfully login, redirect to whole new page with navi bar etc, so that alert wont be needed
               private router: Router,
               private route: ActivatedRoute) {
+    // redirect to home if already logged in
+    //prevents double login etc - bugging app
+    if (this.userService.currentUserValue) {
+      this.router.navigate(['/']);
+    }
   }
 
   ngOnInit(): void {

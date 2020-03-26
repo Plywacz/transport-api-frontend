@@ -18,6 +18,11 @@ export class RegisterComponent {
               private userService: UserService,
               private alertService: AlertService,
               private router: Router) {
+    //prevents accessing registration form if logged in
+    if (this.userService.currentUserValue) {
+      this.router.navigate(['/']);
+    }
+
     this.registrationForm = this.generateFormGroup();
   }
 

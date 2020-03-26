@@ -1,5 +1,5 @@
 <div class="card my-5">
-  <div class="card-body">
+  <div class="card-body bg-light">
     <h2>Registration Form</h2>
     <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
@@ -35,6 +35,5 @@
       <button [disabled]="!registrationForm.valid" class="btn btn-info" type="submit">Send</button>
       <button (click)="clearForm()" class="btn btn-danger ml-1" type="submit">clear</button>
     </form>
-    {{registrationForm.value | json}}  <!-- todo debug only- delete this line -->
   </div>
 </div>
