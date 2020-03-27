@@ -56,8 +56,7 @@ export class RegisterComponent {
           this.alertService.success('Hi ' + data.username + ' your account has been created successfully,\n now you can login to app');
         },
         error => {
-          let msg = 'Registration failed - ';
-          msg += (error.error.message ? error.error.message : 'unknown error');
+          const msg = 'Registration failed: ' + error.error.message || error.error.statusText;
           this.alertService.error(msg);
         }
       );

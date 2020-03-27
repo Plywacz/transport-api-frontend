@@ -6,14 +6,14 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
 import {AppRoutingModule} from './app-routing.module';
-import {HttpClientModule} from '@angular/common/http';
-import {UserService} from './services/user/user.service';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
-import { AlertComponent } from './components/alert/alert.component';
+import {AlertComponent} from './components/alert/alert.component';
 import {AlertService} from './services/alert/alert.service';
-import { HomeComponent } from './components/home/home.component';
+import {HomeComponent} from './components/home/home.component';
 import {AddDriverComponent} from './components/add-driver/add-driver.component';
-
+//import {ErrorInterceptor} from './authorization/error-interceptor';
+import {JwtInterceptor} from './authorization/jwt-interceptor';
 
 
 @NgModule({
@@ -32,7 +32,11 @@ import {AddDriverComponent} from './components/add-driver/add-driver.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [UserService, AlertService],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+  //  {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+    AlertService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -6,7 +6,7 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class DriverService {
-  private readonly driverUrl = 'http://localhost:8080/api/drivers';
+  private readonly driverUrl = 'http://localhost:8080/api/drivers/';
 
   constructor(private http: HttpClient) {
   }

@@ -37,9 +37,11 @@ export class AddDriverComponent implements OnInit {
       .subscribe(data => this.alertService.success(
         'TODO: success on this should redirect to page where user can see newly added driver !!!'),
         error => {
-          const msg = 'Operation failed due to: ' + error.error.message || 'unknown error';
+          let msg = 'Operation failed due to: ';
+          msg += (error.error.message || error.error);
           this.alertService.error(msg);
         });
+    this.clearForm();
   }
 
   get firstName(): AbstractControl {

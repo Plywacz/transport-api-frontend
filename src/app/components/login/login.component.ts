@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private userService: UserService,
-              private alertService: AlertService, //todo: - after successfully login, redirect to whole new page with navi bar etc, so that alert wont be needed
+              private alertService: AlertService,
               private router: Router,
               private route: ActivatedRoute) {
     // redirect to home if already logged in
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
       this.password.value
     )
       .subscribe(data => {
-          this.router.navigate([this.returnUrl]);//todo implement
+          this.router.navigate([this.returnUrl]);
         },
         error => {
           let msg = 'Login failed - ' + (error.error ? error.error : 'unknown error');
