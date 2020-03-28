@@ -12,8 +12,8 @@ import {AlertComponent} from './components/alert/alert.component';
 import {AlertService} from './services/alert/alert.service';
 import {HomeComponent} from './components/home/home.component';
 import {AddDriverComponent} from './components/add-driver/add-driver.component';
-//import {ErrorInterceptor} from './authorization/error-interceptor';
 import {JwtInterceptor} from './authorization/jwt-interceptor';
+import { AddTransitComponent } from './components/add-transit/add-transit.component';
 
 
 @NgModule({
@@ -24,7 +24,8 @@ import {JwtInterceptor} from './authorization/jwt-interceptor';
     AlertComponent,
     AlertComponent,
     HomeComponent,
-    AddDriverComponent
+    AddDriverComponent,
+    AddTransitComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +35,6 @@ import {JwtInterceptor} from './authorization/jwt-interceptor';
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
-  //  {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
     AlertService,
   ],
   bootstrap: [AppComponent]
