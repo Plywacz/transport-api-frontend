@@ -7,7 +7,7 @@ import {AlertService} from '../../services/alert/alert.service';
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.css']
 })
-export class AlertComponent implements OnInit, OnDestroy {
+export class AlertComponent implements OnInit, OnDestroy { //todo add x button to alert, it should close alert on click
   message: { cssClass: string, text: string };
   private subscription: Subscription;
 
