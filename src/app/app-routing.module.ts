@@ -5,14 +5,16 @@ import {LoginComponent} from './components/login/login.component';
 import {HomeComponent} from './components/home/home.component';
 import {AuthGuard} from './authorization/auth-guard.service';
 import {AddDriverComponent} from './components/add-driver/add-driver.component';
+import {AddTransitComponent} from './components/add-transit/add-transit.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'add-driver', component: AddDriverComponent, canActivate: [AuthGuard]},
+  {path: 'add-transit', component: AddTransitComponent, canActivate: [AuthGuard]},
 
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
-  { path: '**', redirectTo: '' } //if path doesnt exists redirect to home
+  {path: '**', redirectTo: ''} //if path doesnt exists redirect to home
 ];
 
 @NgModule({

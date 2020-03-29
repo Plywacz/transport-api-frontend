@@ -1,0 +1,62 @@
+<div class="card my-5">
+  <div class="card-body bg-light border border-secondary rounded">
+    <h2>Add transit Form</h2>
+    <form [formGroup]="addTransitFrom" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="driverId">Driver Id</label>
+        <input [class.is-invalid]="driverId.invalid && driverId.touched"
+               formControlName="driverId" type="number" class="form-control" id="driverId">
+        <div *ngIf="driverId.invalid && driverId.touched">
+          <small *ngIf="driverId.errors?.required" class="text-danger"> Driver Id is
+            required</small>
+          <small *ngIf="driverId.errors?.min" class="text-danger">Driver id must be at
+            least 0</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="sourceAddress">Source Address</label>
+        <input [class.is-invalid]="sourceAddress.invalid && sourceAddress.touched"
+               formControlName="sourceAddress" type="text" class="form-control" id="sourceAddress">
+        <div *ngIf="sourceAddress.invalid && sourceAddress.touched">
+          <small *ngIf="sourceAddress.errors?.required" class="text-danger"> Source Address is
+            required</small>
+          <small *ngIf="sourceAddress.errors?.minlength" class="text-danger">Source Address must be at
+            least 3 characters long</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="destinationAddress">Destination Address</label>
+        <input [class.is-invalid]="destinationAddress.invalid && destinationAddress.touched"
+               formControlName="destinationAddress" type="text" class="form-control" id="destinationAddress">
+        <div *ngIf="destinationAddress.invalid && destinationAddress.touched">
+          <small *ngIf="destinationAddress.errors?.required" class="text-danger"> Destination Address is
+            required</small>
+          <small *ngIf="destinationAddress.errors?.minlength" class="text-danger">Destination Address must be at
+            least 3 characters long</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input [class.is-invalid]="price.invalid && price.touched"
+               formControlName="price" type="number" class="form-control" id="price">
+        <div *ngIf="price.invalid && price.touched">
+          <small *ngIf="price.errors?.required" class="text-danger"> Price is
+            required</small>
+          <small *ngIf="price.errors?.min" class="text-danger">Price must be at
+            least 0</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input [class.is-invalid]="date.invalid && date.touched"
+               formControlName="date" type="date" class="form-control" id="date">
+        <div *ngIf="date.invalid && date.touched">
+          <small *ngIf="date.errors?.required" class="text-danger"> Date is
+            required</small>
+        </div>
+      </div>
+      <button [disabled]="addTransitFrom.invalid" class="btn btn-info" type="submit">Send</button>
+      <button (click)="clearForm()" class="btn btn-danger ml-1" type="reset">Clear</button>
+    </form>
+  </div>
+</div>

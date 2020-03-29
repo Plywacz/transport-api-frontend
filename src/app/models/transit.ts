@@ -1,5 +1,5 @@
 export class Transit {
-  id: number;
+  driverId: number;
   sourceAddress: string;
   destinationAddress: string;
   price: number;
