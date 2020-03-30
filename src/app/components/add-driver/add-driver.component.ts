@@ -32,10 +32,10 @@ export class AddDriverComponent implements OnInit {
   onSubmit() {
     this.alertService.wait('Adding driver in progress...');
 
-    this.driverService.addUser(this.firstName.value, this.lastName.value)
+    this.driverService.addDriver(this.firstName.value, this.lastName.value)
       //todo on success redirect to page that shows freshly created user
       .subscribe(data => this.alertService.success(
-        'TODO: success on this should redirect to page where user can see newly added driver !!!'),
+        data.id+ '  TODO: success on this should redirect to page where user can see newly added driver !!!'),
         error => {
           let msg = 'Operation failed due to: ';
           msg += (error.error.message || error.error);

@@ -1,0 +1,21 @@
+<div class="card my-5">
+  <div class="card-body bg-light border border-secondary rounded">
+    <h2>Delete Driver</h2>
+    <form [formGroup]="deleteDriverForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="driverId">Driver Id</label>
+        <input [class.is-invalid]="driverId.invalid && driverId.touched"
+               formControlName="driverId" type="number" class="form-control" id="driverId">
+        <div *ngIf="driverId.invalid && driverId.touched">
+          <small *ngIf="driverId.errors?.required" class="text-danger"> Driver Id is
+            required</small>
+          <small *ngIf="driverId.errors?.min" class="text-danger">Driver id must be at
+            least 0</small>
+        </div>
+      </div>
+      <button [disabled]="deleteDriverForm.invalid" class="btn btn-info" type="submit">Send</button>
+      <button (click)="clearForm()" class="btn btn-danger ml-1" type="reset">Clear</button>
+    </form>
+  </div>
+</div>
+

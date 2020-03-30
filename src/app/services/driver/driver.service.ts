@@ -11,7 +11,11 @@ export class DriverService {
   constructor(private http: HttpClient) {
   }
 
-  public addUser(firstName: string, lastName: string): Observable<any> {
+  public addDriver(firstName: string, lastName: string): Observable<any> {
     return this.http.post(this.driverUrl, {firstName, lastName});
+  }
+
+  public deleteDriver(id: number): Observable<any> {
+    return this.http.delete(this.driverUrl + id);
   }
 }
