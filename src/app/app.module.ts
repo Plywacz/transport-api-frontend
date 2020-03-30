@@ -15,6 +15,7 @@ import {AddDriverComponent} from './components/add-driver/add-driver.component';
 import {JwtInterceptor} from './authorization/jwt-interceptor';
 import { AddTransitComponent } from './components/add-transit/add-transit.component';
 import { DeleteDriverComponent } from './components/delete-driver/delete-driver.component';
+import { DeleteTransitComponent } from './components/delete-transit/delete-transit.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { DeleteDriverComponent } from './components/delete-driver/delete-driver.
     HomeComponent,
     AddDriverComponent,
     AddTransitComponent,
-    DeleteDriverComponent
+    DeleteDriverComponent,
+    DeleteTransitComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,21 @@
+<div class="card my-5">
+  <div class="card-body bg-light border border-secondary rounded">
+    <h2>Delete Transit</h2>
+    <form [formGroup]="deleteTransitForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="transitId">Transit Id</label>
+        <input [class.is-invalid]="transitId.invalid && transitId.touched"
+               formControlName="transitId" type="number" class="form-control" id="transitId">
+        <div *ngIf="transitId.invalid && transitId.touched">
+          <small *ngIf="transitId.errors?.required" class="text-danger"> Transit Id is
+            required</small>
+          <small *ngIf="transitId.errors?.min" class="text-danger">Transit id must be at
+            least 0</small>
+        </div>
+      </div>
+      <button [disabled]="deleteTransitForm.invalid" class="btn btn-info" type="submit">Send</button>
+      <button (click)="clearForm()" class="btn btn-danger ml-1" type="reset">Clear</button>
+    </form>
+  </div>
+</div>
+

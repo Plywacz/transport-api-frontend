@@ -45,13 +45,14 @@ export class AddTransitComponent {
     })
       .subscribe(
         data => {
-          this.alertService.success('TODO: redirect to page which will show driver to which transit was added');
+          this.alertService.success(data.id + ' TODO: redirect to page which will show driver to which transit was added');
         },
         error => {
           let msg = error.error.message || error.error || 'unknown error';
           this.alertService.error('Operation failed due to: ' + msg);
         }
       );
+    this.clearForm();
   }
 
 

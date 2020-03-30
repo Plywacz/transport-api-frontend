@@ -7,12 +7,14 @@ import {AuthGuard} from './authorization/auth-guard.service';
 import {AddDriverComponent} from './components/add-driver/add-driver.component';
 import {AddTransitComponent} from './components/add-transit/add-transit.component';
 import {DeleteDriverComponent} from './components/delete-driver/delete-driver.component';
+import {DeleteTransitComponent} from './components/delete-transit/delete-transit.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'add-driver', component: AddDriverComponent, canActivate: [AuthGuard]},
   {path: 'add-transit', component: AddTransitComponent, canActivate: [AuthGuard]},
   {path: 'delete-driver', component: DeleteDriverComponent, canActivate: [AuthGuard]},
+  {path: 'delete-transit', component: DeleteTransitComponent, canActivate: [AuthGuard]},
 
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},

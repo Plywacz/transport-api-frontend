@@ -15,4 +15,8 @@ export class TransitService {
   public addTransit(transit: Transit): Observable<any> {
     return this.http.post(this.transitUrl, transit);
   }
+
+  public deleteTransit(id: number) {
+    return this.http.delete(this.transitUrl + id);
+  }
 }
