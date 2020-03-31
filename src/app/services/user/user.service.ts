@@ -15,7 +15,7 @@ export class UserService {
   public currentUser: Observable<User>;
 
   constructor(private http: HttpClient) {
-    this.loginUrl = 'http://localhost:8080/api/login'; //todo update svager doc, because contains not actual links
+    this.loginUrl = 'http://localhost:8080/api/login';
     this.registerUrl = 'http://localhost:8080/api/register';
 
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));

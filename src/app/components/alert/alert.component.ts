@@ -7,7 +7,7 @@ import {AlertService} from '../../services/alert/alert.service';
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.css']
 })
-export class AlertComponent implements OnInit, OnDestroy { //todo add x button to alert, it should close alert on click
+export class AlertComponent implements OnInit, OnDestroy {
   message: { cssClass: string, text: string };
   private subscription: Subscription;
 
@@ -16,24 +16,24 @@ export class AlertComponent implements OnInit, OnDestroy { //todo add x button t
   }
 
   ngOnInit(): void {
-    // subscription- if there is new alert handle it
+    // subscription- registers subscription for alerts  once on alert component init
+    //subscriptions receives notification automatically when there is new alert and fires below func
     this.subscription = this.alertService.getAlert()
       .subscribe(message => { // if there is new message do what is typed below
         switch (message && message.type) {
           case 'success':
             message.cssClass = 'alert alert-success mt-2';
-            this.hideAlert(7000);
+            this.hideAlert(8000);
             break;
           case 'error':
             message.cssClass = 'alert alert-danger mt-2';
-            this.hideAlert(4000);
+            this.hideAlert(8000);
             break;
           case 'wait':
             message.cssClass = 'alert alert-primary mt-2';
         }
         this.message = message;
       });
-    // turn off alert after some time
   }
 
   hideAlert(mills: number): void {
@@ -49,4 +49,7 @@ export class AlertComponent implements OnInit, OnDestroy { //todo add x button t
     this.subscription.unsubscribe();
   }
 
+  close() {
+    this.alertService.clear();
+  }
 }
