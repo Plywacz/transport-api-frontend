@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Transit} from '../../models/transit';
+import {TransitDto} from '../../models/transitDto';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -12,7 +12,7 @@ export class TransitService {
   constructor(private http: HttpClient) {
   }
 
-  public addTransit(transit: Transit): Observable<any> {
+  public addTransit(transit: TransitDto): Observable<any> {
     return this.http.post(this.transitUrl, transit);
   }
 

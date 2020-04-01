@@ -1,0 +1,33 @@
+<div class="card my-5">
+  <div class="card-body bg-light border border-secondary rounded">
+    <h2>Driver: <strong> {{driver.firstName}} {{driver.lastName}}</strong>, id: <strong>{{driver.id}}</strong></h2>
+    <h4>Enrollment Date: <strong>{{driver.enrolledDate}}</strong></h4>
+
+    <div class="card-body bg-light">
+      <h4>Transits:</h4>
+      <table class="table table-hover">
+        <thead class="bg-info">
+        <tr>
+          <th>id</th>
+          <th>Source</th>
+          <th>Destination</th>
+          <th>Price</th>
+          <th>Date</th>
+          <th>Distance</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let transit of driver.transits">
+          <td>{{transit.id}}</td>
+          <td>{{transit.sourceAddress}}</td>
+          <td>{{transit.destinationAddress}}</td>
+          <td>{{transit.price}}</td>
+          <td>{{transit.date}}</td>
+          <td>{{transit.distance}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

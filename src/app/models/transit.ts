@@ -1,7 +1,12 @@
+/**
+ * represents transit fetched from backend api
+ */
 export class Transit {
-  driverId: number;
+  id: number;
   sourceAddress: string;
   destinationAddress: string;
   price: number;
-  date: string;
+  date: Date;
+  distance: number;
+  driverId: number;
 }
