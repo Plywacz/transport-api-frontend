@@ -35,7 +35,7 @@ export class DeleteTransitComponent implements OnInit {
             this.alertService.success('Successfully deleted');
           },
           error => {
-            let msg = error.error.message || error.error || 'unknown error';
+            let msg =' '+ error.error.message || error.error || 'unknown error';
             this.alertService.error('Operation failed due to: ' + msg);
           });
     }

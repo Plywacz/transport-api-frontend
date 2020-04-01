@@ -46,6 +46,6 @@ export class DeleteDriverComponent implements OnInit {
   }
 
   clearForm() {
-
+    this.deleteDriverForm.reset();
   }
 }

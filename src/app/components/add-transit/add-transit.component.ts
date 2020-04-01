@@ -44,8 +44,9 @@ export class AddTransitComponent {
       date: this.date.value
     })
       .subscribe(
-        data => {
-          this.alertService.success(data.id + ' TODO: redirect to page which will show driver to which transit was added');
+        transit => {
+          //  this.alertService.success(transit.driverId + ' TODO: redirect to page which will show driver to which transit was added');
+          this.router.navigate(['display-driver/' + transit.driverId]);
         },
         error => {
           let msg = error.error.message || error.error || 'unknown error';

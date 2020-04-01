@@ -34,8 +34,9 @@ export class AddDriverComponent implements OnInit {
 
     this.driverService.addDriver(this.firstName.value, this.lastName.value)
       //todo on success redirect to page that shows freshly created user
-      .subscribe(data => this.alertService.success(
-        data.id+ '  TODO: success on this should redirect to page where user can see newly added driver !!!'),
+      .subscribe(data => {
+         this.router.navigate(['display-driver/'+data.id]);
+        },
         error => {
           let msg = 'Operation failed due to: ';
           msg += (error.error.message || error.error);
