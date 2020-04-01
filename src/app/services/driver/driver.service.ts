@@ -12,6 +12,10 @@ export class DriverService {
   constructor(private http: HttpClient) {
   }
 
+  public getAllDrivers(): Observable<Driver[]> {
+    return this.http.get<Driver[]>(this.driverUrl);
+  }
+
   public addDriver(firstName: string, lastName: string): Observable<any> {
     return this.http.post(this.driverUrl, {firstName, lastName});
   }

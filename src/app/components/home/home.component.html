@@ -2,5 +2,33 @@
   <div class="card-body bg-light border border-secondary rounded">
     <h1>Hi <strong> {{currentUser.username}} </strong>!</h1>
     <p>Welcome in transport-app</p>
+    <!-- table -->
+    <div class="card-body bg-light">
+      <h3>All Drivers:</h3>
+      <table class="table table-hover">
+        <thead class="bg-info">
+        <tr>
+          <th>id</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Enrollment Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let driver of drivers"  data-toggle="tooltip" title="Click on name to display this driver">
+          <td (click)="displayDriver(driver.id)">{{driver.id}}</td>
+          <td (click)="displayDriver(driver.id)">{{driver.firstName}}</td>
+          <td (click)="displayDriver(driver.id)">{{driver.lastName}}</td>
+          <td (click)="displayDriver(driver.id)">{{driver.enrolledDate}}</td>
+          <td>
+            <button type="button" class="close btn-danger" aria-label="Close" (click)="deleteDriver(driver.id)"
+                    data-toggle="tooltip" title="Delete this transit!">
+              <span aria-hidden="true">X</span>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
