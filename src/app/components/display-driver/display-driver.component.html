@@ -24,6 +24,11 @@
           <td>{{transit.price}}</td>
           <td>{{transit.date}}</td>
           <td>{{transit.distance}}</td>
+          <td>
+            <button type="button" class="close btn-danger" aria-label="Close" (click)="deleteRow(transit.id)">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </td>
         </tr>
         </tbody>
       </table>
