@@ -25,8 +25,9 @@
           <td>{{transit.date}}</td>
           <td>{{transit.distance}}</td>
           <td>
-            <button type="button" class="close btn-danger" aria-label="Close" (click)="deleteRow(transit.id)">
-              <span aria-hidden="true">&times;</span>
+            <button type="button" class="close btn-danger" aria-label="Close" (click)="deleteRow(transit.id)"
+                    data-toggle="tooltip" title="Delete this transit!">
+              <span aria-hidden="true">X</span>
             </button>
           </td>
         </tr>

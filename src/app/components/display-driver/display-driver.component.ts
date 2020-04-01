@@ -11,6 +11,7 @@ import {TransitService} from '../../services/transit/transit.service';
   styleUrls: ['./display-driver.component.css']
 })
 //todo: sort transits by date
+//todo: display driver report on this page
 export class DisplayDriverComponent implements OnInit {
   driver: Driver;
 
