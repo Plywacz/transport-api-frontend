@@ -4,6 +4,7 @@ import {AlertService} from '../../services/alert/alert.service';
 import {Driver} from '../../models/driver';
 import {ActivatedRoute, Router} from '@angular/router';
 import {TransitService} from '../../services/transit/transit.service';
+import {DriverReport} from '../../models/driver-report';
 
 @Component({
   selector: 'app-driver-list',
@@ -11,9 +12,11 @@ import {TransitService} from '../../services/transit/transit.service';
   styleUrls: ['./display-driver.component.css']
 })
 //todo: sort transits by date
-//todo: display driver report on this page
 export class DisplayDriverComponent implements OnInit {
   driver: Driver;
+
+  showReport: boolean = false;
+  driverReport: DriverReport;
 
   constructor(private driverService: DriverService,
               private transitService: TransitService,
@@ -23,6 +26,9 @@ export class DisplayDriverComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.driverReport = null; // when this page is reloaded driverReport is set to null,
+    // so that after reloading if user clicks get driver report he gets fresh report !
+
     const driverId = this.route.snapshot.params.id;
     this.alertService.wait('Operation in progress');
 
@@ -52,4 +58,32 @@ export class DisplayDriverComponent implements OnInit {
           });
     }
   }
+
+  showDriverInfo() {
+    if (!this.driverReport) {
+      this.fetchDriverReport();
+    } else {
+      this.showReport = !this.showReport;
+    }
+  }
+
+  private fetchDriverReport(): void {
+    this.alertService.wait('Fetching driver report...');
+
+    this.driverService.getDriverReport(this.driver.id)
+      .subscribe(
+        data => {
+          console.log(data);
+
+          this.driverReport = data;
+          this.alertService.clear();
+          this.showReport = true;
+        },
+        error => {
+          let msg = ' ' + error.error.message || error.error || 'unknown error';
+          this.alertService.error(msg);
+        }
+      );
+  }
 }
+

@@ -1,8 +1,50 @@
-<div class="card my-5">
+<div class="card my-5" *ngIf="driver">
   <div class="card-body bg-light border border-secondary rounded">
     <h2>Driver: <strong> {{driver.firstName}} {{driver.lastName}}</strong>, id: <strong>{{driver.id}}</strong></h2>
     <h4>Enrollment Date: <strong>{{driver.enrolledDate}}</strong></h4>
+    <button type="button" class="btn btn-info p-2 mt-2" (click)="showDriverInfo()">Extend</button>
+    <!--Extended Info-->
+    <div class="card-body bg-light" *ngIf="showReport&& driverReport">
+      <h4>Totals: </h4>
+      <table class="table table-hover">  <!-- Totals Table-->
+        <thead>
+        <tr>
+          <th>Total Distance</th>
+          <th>Longest Transit</th>
+          <th>Most Expensive Transit</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>{{driverReport.totalDriverInfo.totalDistance}}</td>
+          <td> {{driverReport.totalDriverInfo.longestTransit}}</td>
+          <td>{{driverReport.totalDriverInfo.mostExpensiveTransit}}</td>
+        </tr>
+        </tbody>
+      </table>
+      <!--      Monthly Table-->
+      <h4>Per Month</h4>
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Date</th>
+          <th>Distance Sum</th>
+          <th>Longest Transit</th>
+          <th>Most Expensive Transit</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let info of driverReport.monthlyDriverInfos">
+          <td>{{info.yearMonthDate}}</td>
+          <td>{{info.distancePerMonth}}</td>
+          <td>{{info.longestTransitPerMonth}}</td>
+          <td>{{info.mostExpensiveTransitPerMonth}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
 
+    <!--    transits table-->
     <div class="card-body bg-light">
       <h4>Transits:</h4>
       <table class="table table-hover">
@@ -14,6 +56,7 @@
           <th>Price</th>
           <th>Date</th>
           <th>Distance</th>
+          <th>Delete</th>
         </tr>
         </thead>
         <tbody>

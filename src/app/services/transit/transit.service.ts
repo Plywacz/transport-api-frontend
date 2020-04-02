@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {TransitDto} from '../../models/transitDto';
 import {Observable} from 'rxjs';
-import {Transit} from '../../models/transit';
+import {Transit, TransitDto} from '../../models/transit';
 
 @Injectable({
   providedIn: 'root'
