@@ -1,6 +1,6 @@
 <div *ngIf="message" [ngClass]="message.cssClass">
   <strong>{{message.text}} </strong>
-  <button type="button" class="close btn-danger" aria-label="Close" (click)="close()">
+  <button type="button" class="close btn-danger" aria-label="Close" (click)="hideAlert()">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>

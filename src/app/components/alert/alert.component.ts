@@ -23,20 +23,21 @@ export class AlertComponent implements OnInit, OnDestroy {
         switch (message && message.type) {
           case 'success':
             message.cssClass = 'alert alert-success mt-2';
-            this.hideAlert(8000);
+            this.hideAlertAfter(8000);
             break;
           case 'error':
             message.cssClass = 'alert alert-danger mt-2';
-            this.hideAlert(8000);
+            this.hideAlertAfter(8000);
             break;
           case 'wait':
             message.cssClass = 'alert alert-primary mt-2';
+            this.hideAlertAfter(8000);
         }
         this.message = message;
       });
   }
 
-  hideAlert(mills: number): void {
+  private hideAlertAfter(mills: number): void {
     const self = this;
     setTimeout(() => {
       // self.message.cssClass = 'none';
@@ -49,7 +50,7 @@ export class AlertComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  close() {
+  hideAlert() {
     this.alertService.clear();
   }
 }
