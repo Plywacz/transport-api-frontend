@@ -12,7 +12,9 @@ import {RangeReport} from '../../models/range-report';
 export class ScopeReportComponent implements OnInit {
 
   scopeReportForm: FormGroup;
+
   rangeReport: RangeReport;
+  hideReport: boolean;
 
   constructor(private fb: FormBuilder,
               private alertService: AlertService,
@@ -38,6 +40,7 @@ export class ScopeReportComponent implements OnInit {
       .subscribe(data => {
           this.rangeReport = data;
           this.alertService.clear();
+          this.hideReport = false;
         },
         error => {
           let msg = ' ' + error.error.message || error.error || 'unknown error';
@@ -54,6 +57,7 @@ export class ScopeReportComponent implements OnInit {
   }
 
   clearForm() {
+    this.hideReport = true;
     this.scopeReportForm.reset();
   }
 }

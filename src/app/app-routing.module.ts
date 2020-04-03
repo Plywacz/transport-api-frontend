@@ -10,7 +10,6 @@ import {DeleteDriverComponent} from './components/delete-driver/delete-driver.co
 import {DeleteTransitComponent} from './components/delete-transit/delete-transit.component';
 import {DisplayDriverComponent} from './components/display-driver/display-driver.component';
 import {GetDriverComponent} from './components/get-driver/get-driver.component';
-import {RangeReport} from './models/range-report';
 import {ScopeReportComponent} from './components/scope-report/scope-report.component';
 
 const routes: Routes = [

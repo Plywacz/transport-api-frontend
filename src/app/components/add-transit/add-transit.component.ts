@@ -23,7 +23,7 @@ export class AddTransitComponent {
   private generateForm() {
     return this.fb.group(
       {
-        driverId: ['', [Validators.required, Validators.min(0)]], //todo add validator that make sure it is number !
+        driverId: ['', [Validators.required, Validators.min(0)]],
         sourceAddress: ['', [Validators.required, Validators.minLength(3)]],
         destinationAddress: ['', [Validators.required, Validators.minLength(3)]],
         price: ['', [Validators.required, Validators.min(0)]],
@@ -45,7 +45,6 @@ export class AddTransitComponent {
     })
       .subscribe(
         transit => {
-          //  this.alertService.success(transit.driverId + ' TODO: redirect to page which will show driver to which transit was added');
           this.router.navigate(['display-driver/' + transit.driverId]);
         },
         error => {
