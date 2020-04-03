@@ -73,8 +73,6 @@ export class DisplayDriverComponent implements OnInit {
     this.driverService.getDriverReport(this.driver.id)
       .subscribe(
         data => {
-          console.log(data);
-
           this.driverReport = data;
           this.alertService.clear();
           this.showReport = true;

@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Transit, TransitDto} from '../../models/transit';
+import {DailyInfo} from '../../models/DailyInfo';
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +19,8 @@ export class TransitService {
 
   public deleteTransit(id: number) {
     return this.http.delete(this.transitUrl + id);
+  }
+  public getMonthlyReport(): Observable<DailyInfo[]> {
+    return this.http.get<DailyInfo[]>(this.transitUrl + 'reports/monthly');
   }
 }

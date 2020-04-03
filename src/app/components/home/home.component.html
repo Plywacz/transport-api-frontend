@@ -2,7 +2,32 @@
   <div class="card-body bg-light border border-secondary rounded">
     <h1>Hi <strong> {{currentUser.username}} </strong>!</h1>
     <p>Welcome in transport-app</p>
-    <!-- table -->
+    <button type="button" class="btn btn-info p-1" (click)="getReport()">More</button>
+
+    <!-- daily info table -->
+    <div class="card-body bg-light" *ngIf="showDailyInfo&&dailyInfo">
+      <h4>Stats On Drivers per day this month: </h4>
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Date</th>
+          <th>Total Kilometers</th>
+          <th>Avg Transit Distance</th>
+          <th>Avg Transit Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let day of dailyInfo">
+          <td>{{day.date}}</td>
+          <td>{{day.totalDistance}}</td>
+          <td>{{day.avgDistance}}</td>
+          <td>{{day.avgPrice}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- drivers table -->
     <div class="card-body bg-light">
       <h3>All Drivers:</h3>
       <table class="table table-hover">
@@ -15,7 +40,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let driver of drivers"  data-toggle="tooltip" title="Click on name to display this driver">
+        <tr *ngFor="let driver of drivers" data-toggle="tooltip" title="Click on name to display this driver">
           <td (click)="displayDriver(driver.id)">{{driver.id}}</td>
           <td (click)="displayDriver(driver.id)">{{driver.firstName}}</td>
           <td (click)="displayDriver(driver.id)">{{driver.lastName}}</td>
@@ -29,6 +54,7 @@
         </tr>
         </tbody>
       </table>
+
     </div>
   </div>
 </div>

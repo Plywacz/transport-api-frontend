@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Driver} from '../../models/driver';
 import {DriverReport} from '../../models/driver-report';
+import {DailyInfo} from '../../models/DailyInfo';
 
 @Injectable({
   providedIn: 'root'
