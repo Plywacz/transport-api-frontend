@@ -18,6 +18,7 @@ import { DeleteDriverComponent } from './components/delete-driver/delete-driver.
 import { DeleteTransitComponent } from './components/delete-transit/delete-transit.component';
 import { GetDriverComponent } from './components/get-driver/get-driver.component';
 import { DisplayDriverComponent } from './components/display-driver/display-driver.component';
+import { ScopeReportComponent } from './components/scope-report/scope-report.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { DisplayDriverComponent } from './components/display-driver/display-driv
     DeleteDriverComponent,
     DeleteTransitComponent,
     GetDriverComponent,
-    DisplayDriverComponent
+    DisplayDriverComponent,
+    ScopeReportComponent
   ],
   imports: [
     BrowserModule,

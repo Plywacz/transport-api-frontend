@@ -10,6 +10,8 @@ import {DeleteDriverComponent} from './components/delete-driver/delete-driver.co
 import {DeleteTransitComponent} from './components/delete-transit/delete-transit.component';
 import {DisplayDriverComponent} from './components/display-driver/display-driver.component';
 import {GetDriverComponent} from './components/get-driver/get-driver.component';
+import {RangeReport} from './models/range-report';
+import {ScopeReportComponent} from './components/scope-report/scope-report.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
@@ -19,6 +21,7 @@ const routes: Routes = [
   {path: 'add-transit', component: AddTransitComponent, canActivate: [AuthGuard]},
   {path: 'delete-driver', component: DeleteDriverComponent, canActivate: [AuthGuard]},
   {path: 'delete-transit', component: DeleteTransitComponent, canActivate: [AuthGuard]},
+  {path: 'scope-report', component: ScopeReportComponent, canActivate: [AuthGuard]},
 
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},

@@ -27,7 +27,7 @@ export class AddTransitComponent {
         sourceAddress: ['', [Validators.required, Validators.minLength(3)]],
         destinationAddress: ['', [Validators.required, Validators.minLength(3)]],
         price: ['', [Validators.required, Validators.min(0)]],
-        date: ['', [Validators.required]],
+        date: ['', [Validators.required]], //todo validate that given date is before current day
       }
     );
   }

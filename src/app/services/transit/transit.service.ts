@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Transit, TransitDto} from '../../models/transit';
 import {DailyInfo} from '../../models/DailyInfo';
+import {RangeReport} from '../../models/range-report';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,13 @@ export class TransitService {
   public deleteTransit(id: number) {
     return this.http.delete(this.transitUrl + id);
   }
+
   public getMonthlyReport(): Observable<DailyInfo[]> {
     return this.http.get<DailyInfo[]>(this.transitUrl + 'reports/monthly');
   }
+
+  public getReportRange(sdate: Date, edate: Date): Observable<RangeReport> {
+    return this.http.get<RangeReport>(this.transitUrl + 'reports/range/' + sdate + '&&' + edate); //todo create this url better way
+  }
+
 }
