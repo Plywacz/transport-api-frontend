@@ -33,7 +33,6 @@ export class AddDriverComponent implements OnInit {
     this.alertService.wait('Adding driver in progress...');
 
     this.driverService.addDriver(this.firstName.value, this.lastName.value)
-      //todo on success redirect to page that shows freshly created user
       .subscribe(data => {
          this.router.navigate(['display-driver/'+data.id]);
         },
